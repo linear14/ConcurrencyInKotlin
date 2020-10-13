@@ -2,21 +2,20 @@ package com.dongldh.concurrencyinkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_section_2.*
 import kotlinx.coroutines.*
 import org.w3c.dom.Element
 import org.w3c.dom.Node
-import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 
-class MainActivity : AppCompatActivity() {
+class Section2Activity : AppCompatActivity() {
 
     private val netDispatcher = newSingleThreadContext(name = "ServiceCall")
     private val factory = DocumentBuilderFactory.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_section_2)
 
         GlobalScope.launch(netDispatcher) {
             loadNews()
